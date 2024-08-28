@@ -1,0 +1,18 @@
+<div id="kutu" draggable="true" ondragstart="surukle(event)" style="width:100px;height:100px;background-color:red;"></div>
+<div id="hedef" ondragover="izinVer(event)" ondrop="birak(event)" style="width:200px;height:200px;border:1px solid #000;"></div>
+
+<script>
+function surukle(event) {
+    event.dataTransfer.setData("text", event.target.id);
+}
+
+function izinVer(event) {
+    event.preventDefault();
+}
+
+function birak(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    event.target.appendChild(document.getElementById(data));
+}
+</script>
